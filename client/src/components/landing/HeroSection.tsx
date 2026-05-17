@@ -29,21 +29,6 @@ export default function HeroSection() {
           Practice technical interviews with AI-powered mock interviews,
           resume analysis, coding assessments, and real-time feedback.
         </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-          className="mt-10 flex justify-center gap-4 flex-wrap"
-        >
-          <button className="px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:scale-105 transition-all duration-300">
-            Start Free
-          </button>
-
-          <button className="px-8 py-4 rounded-xl border border-white/20 hover:bg-white/10 transition-all duration-300">
-            Watch Demo
-          </button>
-        </motion.div>
       </div>
     </section>
   );

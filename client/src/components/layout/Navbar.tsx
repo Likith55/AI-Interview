@@ -21,7 +21,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-8 text-sm text-gray-300">
           <Link href="/">Features</Link>
           <Link href="/">Pricing</Link>
-          <Link href="/">Dashboard</Link>
+          <Link href="/dashboard">Dashboard</Link>
         </div>
 
         <button className="px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:scale-105 transition-all duration-300">
