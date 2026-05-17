@@ -1,9 +1,13 @@
+import Navbar from "@/components/layout/Navbar";
+import HeroSection from "@/components/landing/HeroSection";
+import StatsSection from "@/components/landing/StatsSection";
+
 export default function HomePage() {
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <h1 className="text-5xl font-bold">
-        AI Interview Preparation Platform
-      </h1>
+    <main className="bg-black text-white overflow-hidden">
+      <Navbar />
+      <HeroSection />
+      <StatsSection />
     </main>
   );
 }
