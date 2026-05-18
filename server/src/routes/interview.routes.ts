@@ -1,8 +1,26 @@
-import { Router } from "express";
-import { createInterview } from "../controllers/interview.controller";
+import express from "express";
 
-const router = Router();
+import {
+  saveInterview,
+  getInterviews,
+  getLeaderboard,
+} from "../controllers/interview.controller";
 
-router.post("/generate", createInterview);
+const router = express.Router();
+
+router.post(
+  "/save",
+  saveInterview
+);
+
+router.get(
+  "/all",
+  getInterviews
+);
+
+router.get(
+  "/leaderboard",
+  getLeaderboard
+);
 
 export default router;

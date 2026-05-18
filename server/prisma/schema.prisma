@@ -4,15 +4,34 @@ generator client {
 
 datasource db {
   provider = "postgresql"
- 
+  url      = env("DATABASE_URL")
 }
 
-model User {
-  id          String   @id @default(uuid())
-  name        String
-  email       String   @unique
-  password    String?
-  imageUrl    String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-}
+model Interview {
+
+  id Int @id @default(autoincrement())
+
+  userName String
+
+  role String
+
+  transcript String
+
+  technicalScore Float
+
+  communicationScore Float
+
+  confidenceScore Float
+
+  overallScore Float
+
+  strengths String
+
+  weaknesses String
+
+  suggestions String
+
+  finalFeedback String
+
+  createdAt DateTime @default(now())
+} 
