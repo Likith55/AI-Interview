@@ -2,16 +2,13 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 
-import {
-  ClerkProvider,
-} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 
 import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "AI Interview Platform",
-  description:
-    "AI Voice Interview Platform",
+  description: "AI Voice Interview Platform",
 };
 
 export default function RootLayout({
@@ -26,7 +23,7 @@ export default function RootLayout({
 
       <html lang="en">
 
-        <body>
+        <body className="bg-black text-white">
 
           <Navbar />
 

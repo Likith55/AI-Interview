@@ -13,7 +13,7 @@ export default function Navbar() {
 
   return (
 
-    <nav className="w-full flex items-center justify-between px-10 py-6 bg-zinc-950 border-b border-zinc-800 text-white">
+    <nav className="w-full flex items-center justify-between px-8 py-5 border-b border-zinc-800 bg-black">
 
       <Link
         href="/"
@@ -22,11 +22,7 @@ export default function Navbar() {
         AI Interview
       </Link>
 
-      <div className="flex items-center gap-6">
-
-        <Link href="/">
-          Home
-        </Link>
+      <div className="flex items-center gap-5">
 
         <Link href="/resume">
           Resume

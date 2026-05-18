@@ -73,8 +73,12 @@ export default function InterviewPage() {
             },
 
             body: JSON.stringify({
+
               role:
                 "AI Software Engineer",
+
+              userName:
+                "Likith",
 
               transcript,
             }),
@@ -85,12 +89,15 @@ export default function InterviewPage() {
           "Interview Saved"
         );
 
-      } catch (error) {
+      } catch (error: unknown) {
 
-        console.error(
-          "Save Error:",
-          error
-        );
+        if (error instanceof Error) {
+
+          console.error(
+            "Save Error:",
+            error.message
+          );
+        }
       }
     });
 
@@ -116,30 +123,44 @@ export default function InterviewPage() {
     |--------------------------------------------------------------------------
     */
 
-    vapi.on("message", (message: any) => {
+    vapi.on("message", (message: unknown) => {
 
       if (
-        message.type === "transcript"
+        typeof message === "object" &&
+        message !== null &&
+        "type" in message &&
+        "transcript" in message
       ) {
 
-        const previous =
-          localStorage.getItem(
-            "latestTranscript"
-          ) || "";
+        const typedMessage =
+          message as {
+            type: string;
+            transcript: string;
+          };
 
-        const updated =
-          previous +
-          "\n" +
-          message.transcript;
+        if (
+          typedMessage.type === "transcript"
+        ) {
 
-        localStorage.setItem(
-          "latestTranscript",
-          updated
-        );
+          const previous =
+            localStorage.getItem(
+              "latestTranscript"
+            ) || "";
 
-        console.log(
-          "Transcript Updated"
-        );
+          const updated =
+            previous +
+            "\n" +
+            typedMessage.transcript;
+
+          localStorage.setItem(
+            "latestTranscript",
+            updated
+          );
+
+          console.log(
+            "Transcript Updated"
+          );
+        }
       }
     });
 
@@ -189,12 +210,15 @@ export default function InterviewPage() {
         }
       );
 
-    } catch (error) {
+    } catch (error: unknown) {
 
-      console.error(
-        "Vapi Error:",
-        error
-      );
+      if (error instanceof Error) {
+
+        console.error(
+          "Vapi Error:",
+          error.message
+        );
+      }
 
       setLoading(false);
     }
@@ -216,12 +240,16 @@ export default function InterviewPage() {
     <main className="min-h-screen bg-black text-white flex flex-col items-center justify-center gap-10 p-10">
 
       <h1 className="text-6xl font-bold text-center">
+
         AI Voice Interview
+
       </h1>
 
       <p className="text-gray-400 text-center max-w-2xl">
+
         Resume-based AI Interviewer powered by
-        Vapi + Gemini AI.
+        Vapi + AI.
+
       </p>
 
       <div
@@ -261,7 +289,9 @@ export default function InterviewPage() {
           onClick={stopInterview}
           className="px-10 py-5 rounded-2xl bg-red-500 hover:bg-red-400 text-white font-bold text-2xl transition-all"
         >
+
           End Interview
+
         </button>
 
       )}
