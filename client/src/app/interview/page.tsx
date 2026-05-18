@@ -63,7 +63,7 @@ export default function InterviewPage() {
           ) || "No transcript";
 
         await fetch(
-          "http://localhost:5000/api/interview/save",
+          `${process.env.NEXT_PUBLIC_API_URL}/api/interview/save`,
           {
             method: "POST",
 

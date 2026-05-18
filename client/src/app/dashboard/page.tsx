@@ -44,7 +44,7 @@ export default function DashboardPage() {
     try {
 
       const res = await fetch(
-        "http://localhost:5000/api/interview/all"
+        `${process.env.NEXT_PUBLIC_API_URL}/api/interview/all`
       );
 
       const data = await res.json();

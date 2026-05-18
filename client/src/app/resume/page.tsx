@@ -37,7 +37,7 @@ export default function ResumePage() {
 
       const response =
         await axios.post(
-          "http://localhost:5000/api/resume/upload",
+          `${process.env.NEXT_PUBLIC_API_URL}/api/resume/upload`,
           formData,
           {
             headers: {
